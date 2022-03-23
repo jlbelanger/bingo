@@ -1,0 +1,8 @@
+.DS_Store
+.eslintcache
+.gitcommit
+*.log
+/build
+build.zip
+node_modules
+TODO.md

@@ -1,0 +1,167 @@
+$black: #000;
+$white: #fff;
+$light-gray: #ccc;
+$dark-gray: #999;
+
+$img-width: 100px;
+$img-border-width: 1px;
+$img-margin: 2px;
+
+$margin: 12px;
+$board-width: ($img-width + ($img-border-width * 2) + ($img-margin * 2)) * 5;
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body,
+#main {
+	min-height: 100vh;
+}
+
+body {
+	background: $light-gray;
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0 $margin;
+}
+
+h1 {
+	margin: 0 auto;
+}
+
+p {
+	margin: $margin auto 0;
+}
+
+#main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#board {
+	background: $white;
+	border: 2px solid $black;
+	margin: $margin auto;
+	max-width: $board-width;
+	padding: #{$img-margin * 2};
+	width: 100%;
+}
+
+.button {
+	appearance: none;
+	background: transparent;
+	border: $img-border-width dotted $dark-gray;
+	border-radius: 0;
+	cursor: pointer;
+	font-size: 0;
+	margin: $img-margin;
+	padding: 0;
+	position: relative;
+}
+
+.clicked {
+	&::after {
+		background: red;
+		border-radius: 360px;
+		bottom: 5%;
+		content: '';
+		display: block;
+		left: 5%;
+		opacity: .5;
+		position: absolute;
+		right: 5%;
+		top: 5%;
+	}
+}
+
+img {
+	color: $white;
+	height: auto;
+	max-height: $img-width;
+	max-width: $img-width;
+	pointer-events: none;
+	width: 100%;
+}
+
+#header,
+#footer {
+	background: $black;
+	color: $white;
+	width: 100%;
+}
+
+#header {
+	font-size: 32px;
+	font-weight: bold;
+	line-height: 1;
+	margin: 0 0 $img-margin;
+	padding: 8px 12px 0;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	@media screen and (min-width: 360px) {
+		font-size: 48px;
+		padding-top: 12px;
+	}
+
+	@media screen and (min-width: 430px) {
+		font-size: 60px;
+		padding-top: 14px;
+	}
+
+	@media screen and (min-width: #{$board-width + ($margin * 2)}) {
+		font-size: 76px;
+		padding-top: 16px;
+	}
+}
+
+#article {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+#footer {
+	border: 0;
+	font-size: 16px;
+	margin: $img-margin 0 0;
+	padding: 8px 4px;
+	text-align: right;
+}
+
+#refresh {
+	background: transparent;
+	border: 1px solid;
+	border-radius: 4px;
+	color: #03c;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	height: 44px;
+	margin: $margin auto;
+	padding: 0;
+	width: 100px;
+
+	&:hover {
+		background: #d0d0d0;
+		color: #33f;
+	}
+
+	&:active,
+	&:focus {
+		background: #ddd;
+		color: #33f;
+	}
+
+	@media print {
+		display: none;
+	}
+}
+
+:focus {
+	box-shadow: 0 0 0 4px #6cf;
+	outline: none !important; // stylelint-disable-line declaration-no-important
+}
