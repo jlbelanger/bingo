@@ -87,6 +87,8 @@ const contentToCache = [
 	'/assets/img/wide-latin.png',
 	'/assets/img/zapfino.png',
 	'/assets/js/functions.min.js',
+	'/favicon.ico',
+	'/favicon.png',
 	'/favicon.svg',
 	'/index.html',
 	'/sw.js',
