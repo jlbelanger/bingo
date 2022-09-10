@@ -132,7 +132,11 @@ img {
 	text-align: right;
 }
 
-#refresh {
+#links {
+	margin: $margin auto;
+}
+
+.link {
 	background: transparent;
 	border: 1px solid;
 	border-radius: 4px;
@@ -141,8 +145,11 @@ img {
 	display: inline-block;
 	font-size: 16px;
 	height: 44px;
-	margin: $margin auto;
+	line-height: 44px;
 	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: top;
 	width: 100px;
 
 	&:hover {
@@ -159,6 +166,10 @@ img {
 	@media print {
 		display: none;
 	}
+}
+
+#refresh {
+	margin-right: 16px;
 }
 
 :focus {
