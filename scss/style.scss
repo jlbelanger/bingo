@@ -1,6 +1,5 @@
 $black: #000;
 $white: #fff;
-$light-gray: #ccc;
 $dark-gray: #999;
 
 $img-width: 100px;
@@ -21,7 +20,7 @@ body,
 }
 
 body {
-	background: $light-gray;
+	background: $dark-gray;
 	font-family: Helvetica, Arial, sans-serif;
 	margin: 0 $margin;
 }

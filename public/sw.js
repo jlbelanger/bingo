@@ -1,8 +1,7 @@
 const cacheName = 'bingo-20220322';
 const contentToCache = [
 	'/',
-	'/192x192.png',
-	'/512x512.png',
+	'/icon.png',
 	'/apple-touch-icon.png',
 	'/assets/css/style.min.css',
 	'/assets/img/algerian.png',
