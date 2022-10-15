@@ -65,7 +65,7 @@ function css() {
 				.pipe(postcss([autoprefixer(), cssnano()]))
 				.pipe(gulp.dest(obj.dest))
 				.pipe(livereload())
-		)),
+		))
 	);
 }
 
@@ -75,50 +75,42 @@ function files() {
 			gulp.src(obj.src)
 				.pipe(gulp.dest(obj.dest))
 				.pipe(livereload())
-		)),
+		))
 	);
 }
 
 function html() {
 	return gulp.src(config.html.compile)
-		.pipe(foreach(function (stream, file) {
+		.pipe(foreach((stream, file) => {
 			const name = file.path.replace(/^.+\/src\//, '');
 			return stream.pipe(twig({
 				filters: [
 					{
 						name: 'metaDescription',
-						func: function (str) {
-							return str || config.meta.description;
-						},
+						func: (str) => (str || config.meta.description),
 					},
 					{
 						name: 'metaTitle',
-						func: function (str) {
-							return str ? str.replace(/<[^>]+>/g, '') + ' | ' + config.meta.title : config.meta.title;
-						},
+						func: (str) => (str ? `${str.replace(/<[^>]+>/g, '')} | ${config.meta.title}` : config.meta.title),
 					},
 				],
 				functions: [
 					{
 						name: 'activeClass',
-						func: function (path) {
+						func: (path) => {
 							if (path[0] === '/') {
-								return (('/' + name).indexOf(path) > -1) ? ' class="active"' : '';
+								return ((`/${name}`).indexOf(path) > -1) ? ' class="active"' : '';
 							}
 							return (path === name) ? ' class="active"' : '';
 						},
 					},
 					{
 						name: 'filenameClass',
-						func: function () {
-							return ' class="page-' + name.replace(/[^a-z0-9-]+/g, '-') + '"';
-						},
+						func: () => (` class="page-${name.replace(/[^a-z0-9-]+/g, '-')}"`),
 					},
 					{
 						name: 'isActive',
-						func: function (path) {
-							return path === name;
-						},
+						func: (path) => (path === name),
 					},
 				],
 			}));
@@ -135,7 +127,7 @@ function js() {
 				.pipe(terser())
 				.pipe(gulp.dest(obj.dest_folder))
 				.pipe(livereload())
-		)),
+		))
 	);
 }
 

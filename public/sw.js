@@ -94,24 +94,24 @@ const contentToCache = [
 ];
 
 // Installing Service Worker
-self.addEventListener('install', (e) => {
-	console.log('[Service Worker] Install');
+self.addEventListener('install', (e) => { // eslint-disable-line no-restricted-globals
+	console.log('[Service Worker] Install'); // eslint-disable-line no-console
 	e.waitUntil((async () => {
 		const cache = await caches.open(cacheName);
-		console.log('[Service Worker] Caching all: app shell and content');
+		console.log('[Service Worker] Caching all: app shell and content'); // eslint-disable-line no-console
 		await cache.addAll(contentToCache);
 	})());
 });
 
 // Fetching content using Service Worker
-self.addEventListener('fetch', (e) => {
+self.addEventListener('fetch', (e) => { // eslint-disable-line no-restricted-globals
 	e.respondWith((async () => {
 		const r = await caches.match(e.request);
-		console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+		console.log(`[Service Worker] Fetching resource: ${e.request.url}`); // eslint-disable-line no-console
 		if (r) return r;
 		const response = await fetch(e.request);
 		const cache = await caches.open(cacheName);
-		console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+		console.log(`[Service Worker] Caching new resource: ${e.request.url}`); // eslint-disable-line no-console
 		cache.put(e.request, response.clone());
 		return response;
 	})());
