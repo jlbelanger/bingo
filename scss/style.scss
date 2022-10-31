@@ -25,10 +25,6 @@ body {
 	margin: 0 $margin;
 }
 
-h1 {
-	margin: 0 auto;
-}
-
 p {
 	margin: $margin auto 0;
 }
@@ -92,7 +88,7 @@ img {
 	width: 100%;
 }
 
-#header {
+#title {
 	font-size: 32px;
 	font-weight: bold;
 	line-height: 1;
@@ -139,7 +135,7 @@ img {
 	background: transparent;
 	border: 1px solid;
 	border-radius: 4px;
-	color: #03c;
+	color: #0000b1;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -151,15 +147,10 @@ img {
 	vertical-align: top;
 	width: 100px;
 
-	&:hover {
-		background: #d0d0d0;
-		color: #33f;
-	}
-
+	&:hover,
 	&:active,
 	&:focus {
-		background: #ddd;
-		color: #33f;
+		background: #bbb;
 	}
 
 	@media print {
