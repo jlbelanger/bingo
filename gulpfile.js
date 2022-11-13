@@ -2,11 +2,11 @@ const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
 const concat = require('gulp-concat');
 const cssnano = require('cssnano');
-const foreach = require('gulp-foreach');
+const flatmap = require('gulp-flatmap');
 const livereload = require('gulp-livereload');
 const mergeStream = require('merge-stream');
 const postcss = require('gulp-postcss');
-const sass = require('gulp-sass')(require('node-sass'));
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
 const terser = require('gulp-terser');
 const twig = require('gulp-twig');
@@ -81,7 +81,7 @@ function files() {
 
 function html() {
 	return gulp.src(config.html.compile)
-		.pipe(foreach((stream, file) => {
+		.pipe(flatmap((stream, file) => {
 			const name = file.path.replace(/^.+\/src\//, '');
 			return stream.pipe(twig({
 				filters: [
