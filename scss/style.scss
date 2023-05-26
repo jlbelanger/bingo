@@ -1,6 +1,8 @@
 $black: #000;
 $white: #fff;
 $dark-gray: #999;
+$blue: #00009d;
+$red: #e30000;
 
 $img-width: 100px;
 $img-border-width: 1px;
@@ -59,7 +61,7 @@ p {
 
 .clicked {
 	&::after {
-		background: red;
+		background: $red;
 		border-radius: 360px;
 		bottom: 5%;
 		content: '';
@@ -135,7 +137,7 @@ img {
 	background: transparent;
 	border: 1px solid;
 	border-radius: 4px;
-	color: #0000b1;
+	color: $blue;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -150,7 +152,7 @@ img {
 	&:hover,
 	&:active,
 	&:focus {
-		background: #bbb;
+		background: rgba($blue, .05);
 	}
 
 	@media print {
@@ -158,8 +160,54 @@ img {
 	}
 }
 
+.link--secondary {
+	color: $black;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: rgba($black, .05);
+	}
+}
+
+.link--delete {
+	color: $red;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: rgba($red, .05);
+	}
+}
+
 #refresh {
 	margin-right: 16px;
+}
+
+.modal {
+	background: $white;
+	border: 2px solid $black;
+	box-shadow: 4px 4px 0 0 rgba($black, .5);
+	color: $black;
+	padding: 20px;
+
+	&:focus {
+		box-shadow: 4px 4px 0 0 rgba($black, .5);
+	}
+}
+
+.modal::backdrop {
+	background: rgba($black, .5);
+}
+
+.modal__box {
+	& > :first-child {
+		margin-top: 0;
+	}
+}
+
+.modal__options {
+	text-align: right;
 }
 
 :focus {
