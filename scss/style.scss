@@ -100,17 +100,17 @@ img {
 	text-transform: uppercase;
 	white-space: nowrap;
 
-	@media screen and (min-width: 360px) {
+	@media (min-width: 360px) {
 		font-size: 48px;
 		padding-top: 12px;
 	}
 
-	@media screen and (min-width: 430px) {
+	@media (min-width: 430px) {
 		font-size: 60px;
 		padding-top: 14px;
 	}
 
-	@media screen and (min-width: #{$board-width + ($margin * 2)}) {
+	@media (min-width: #{$board-width + ($margin * 2)}) {
 		font-size: 76px;
 		padding-top: 16px;
 	}
