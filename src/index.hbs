@@ -1,8 +1,4 @@
-{% extends "base.html.twig" %}
-
-{% set title = "" %}
-
-{% block content %}
+{{#> ../partials/layout}}
 <noscript>This site requires Javascript to be enabled.</noscript>
 
 <div id="board">
@@ -17,4 +13,4 @@
 	<button class="link" id="refresh" type="button">Refresh</button>
 	<a class="link" href="https://github.com/jlbelanger/bingo/">GitHub</a>
 </div>
-{% endblock %}
+{{/../partials/layout}}

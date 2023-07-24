@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="description" content="Play bingo... with fonts.">
 		<meta name="keywords" content="bingo, fonts">
-		<meta property="og:title" content="{{ title|metaTitle }}">
+		<meta property="og:title" content="{{metaTitle title}}Font Bingo">
 		<meta property="og:description" content="Play bingo... with fonts.">
 		<meta property="og:image" content="https://bingo.jennybelanger.com/share.png">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,18 +24,16 @@
 		<link rel="apple-touch-startup-image" href="/assets/splash/apple-splash-1242-2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
 		<link rel="apple-touch-startup-image" href="/assets/splash/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 		<link rel="apple-touch-startup-image" href="/assets/splash/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-		<title>{{ title|metaTitle }}</title>
+		<title>{{metaTitle title}}Font Bingo</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 		<link rel="icon" href="/favicon.ico">
 		<link rel="manifest" href="/manifest.json">
-		<link rel="stylesheet" href="/assets/css/style.min.css?20230526">
-		<script>document.documentElement.classList.remove('no-js');</script>
+		<script integrity="sha256-tuKyZn/3ycw/MNMDii/kvSPrelo6SCsJSecqb1n2neg=">document.documentElement.classList.remove('no-js');</script>
 	</head>
 	<body>
 		<main id="main">
-			{% block content %}{% endblock %}
+			{{> @partial-block}}
 		</main>
-		<script src="/assets/js/functions.min.js?20230526"></script>
 	</body>
 </html>
