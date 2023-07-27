@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 function getPages(dir) {
 	let output = [];
@@ -33,7 +34,7 @@ module.exports = {
 			},
 		},
 		open: false,
-		port: 8080,
+		port: 8081,
 		server: 'https',
 		static: false,
 	},
@@ -70,8 +71,8 @@ module.exports = {
 			},
 		}),
 		new BrowserSyncPlugin({
-			proxy: 'https://localhost:8080',
-			port: 3000,
+			proxy: 'https://localhost:8081',
+			port: 3001,
 			files: [
 				'helpers/**/*',
 				'js/**/*',
@@ -90,6 +91,16 @@ module.exports = {
 			},
 		}, {
 			reload: false,
+		}),
+		new WorkboxPlugin.GenerateSW({
+			clientsClaim: true,
+			exclude: [
+				'403.html',
+				'404.html',
+				'robots.txt',
+				'sitemap.xml',
+			],
+			skipWaiting: true,
 		}),
 	],
 	module: {
