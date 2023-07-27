@@ -20,7 +20,7 @@ cd bingo
 ### Run
 
 ``` bash
-yarn watch
+yarn start
 ```
 
 ### Lint
