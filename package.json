@@ -18,7 +18,7 @@
 		"lint:css": "node_modules/.bin/stylelint 'scss/**/*.scss'",
 		"lint:html": "node_modules/.bin/linthtml 'src/**/*.html'",
 		"lint:js": "node_modules/.bin/eslint . --ext .js",
-		"start": "npx browserslist@latest --update-db && node_modules/.bin/webpack serve"
+		"start": "npx update-browserslist-db@latest && node_modules/.bin/webpack serve"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.9",
@@ -50,5 +50,6 @@
 		"webpack-cli": "^5.1.4",
 		"webpack-dev-server": "^4.15.1",
 		"workbox-webpack-plugin": "^7.0.0"
-	}
+	},
+	"dependencies": {}
 }
