@@ -1,6 +1,6 @@
 # Font Bingo
 
-View the app at https://bingo.jennybelanger.com/
+[View the site](https://bingo.jennybelanger.com/).
 
 ## Development
 
@@ -22,6 +22,8 @@ cd bingo
 ``` bash
 yarn start
 ```
+
+Your browser should automatically open https://localhost:3000/
 
 ### Lint
 
