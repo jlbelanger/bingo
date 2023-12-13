@@ -63,14 +63,11 @@ p {
 	&::after {
 		background: $red;
 		border-radius: 360px;
-		bottom: 5%;
 		content: '';
 		display: block;
-		left: 5%;
+		inset: 5%;
 		opacity: .5;
 		position: absolute;
-		right: 5%;
-		top: 5%;
 	}
 }
 
@@ -100,17 +97,17 @@ img {
 	text-transform: uppercase;
 	white-space: nowrap;
 
-	@media (min-width: 360px) {
+	@media (width >= 360px) {
 		font-size: 48px;
 		padding-top: 12px;
 	}
 
-	@media (min-width: 430px) {
+	@media (width >= 430px) {
 		font-size: 60px;
 		padding-top: 14px;
 	}
 
-	@media (min-width: #{$board-width + ($margin * 2)}) {
+	@media (width >= #{$board-width + ($margin * 2)}) {
 		font-size: 76px;
 		padding-top: 16px;
 	}
