@@ -3,6 +3,7 @@
 	"env": {
 		"browser": true
 	},
+	"ignorePatterns": ["build/**/*"],
 	"rules": {
 		"comma-dangle": ["error", {
 			"arrays": "always-multiline",

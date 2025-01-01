@@ -1,15 +1,17 @@
-$black: #000;
-$white: #fff;
-$dark-gray: #999;
-$blue: #00009d;
-$red: #e30000;
-
 $img-width: 100px;
 $img-border-width: 1px;
 $img-margin: 2px;
-
 $margin: 12px;
-$board-width: ($img-width + ($img-border-width * 2) + ($img-margin * 2)) * 5;
+$board-width: ($img-width + ($img-border-width + $img-margin) * 2) * 5;
+
+:root {
+	/* Colors. */
+	--black: #000;
+	--white: #fff;
+	--dark-gray: #999;
+	--blue: #00009d;
+	--red: #e30000;
+}
 
 * {
 	box-sizing: border-box;
@@ -22,7 +24,7 @@ body,
 }
 
 body {
-	background: $dark-gray;
+	background: var(--dark-gray);
 	font-family: Helvetica, Arial, sans-serif;
 	margin: 0 $margin;
 }
@@ -39,18 +41,18 @@ p {
 }
 
 #board {
-	background: $white;
-	border: 2px solid $black;
+	background: var(--white);
+	border: 2px solid var(--black);
 	margin: $margin auto;
 	max-width: $board-width;
-	padding: #{$img-margin * 2};
+	padding: calc($img-margin * 2);
 	width: 100%;
 }
 
 .button {
 	appearance: none;
 	background: transparent;
-	border: $img-border-width dotted $dark-gray;
+	border: $img-border-width dotted var(--dark-gray);
 	border-radius: 0;
 	cursor: pointer;
 	font-size: 0;
@@ -61,7 +63,7 @@ p {
 
 .clicked {
 	&::after {
-		background: $red;
+		background: var(--red);
 		border-radius: 360px;
 		content: '';
 		display: block;
@@ -72,7 +74,7 @@ p {
 }
 
 img {
-	color: $white;
+	color: var(--white);
 	height: auto;
 	max-height: $img-width;
 	max-width: $img-width;
@@ -82,8 +84,8 @@ img {
 
 #header,
 #footer {
-	background: $black;
-	color: $white;
+	background: var(--black);
+	color: var(--white);
 	width: 100%;
 }
 
@@ -107,7 +109,7 @@ img {
 		padding-top: 14px;
 	}
 
-	@media (width >= #{$board-width + ($margin * 2)}) {
+	@media (width >= calc($board-width + ($margin * 2))) {
 		font-size: 76px;
 		padding-top: 16px;
 	}
@@ -134,7 +136,7 @@ img {
 	background: transparent;
 	border: 1px solid;
 	border-radius: 4px;
-	color: $blue;
+	color: var(--blue);
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -149,7 +151,7 @@ img {
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba($blue, .05);
+		background: rgba(var(--blue), .05);
 	}
 
 	@media print {
@@ -158,22 +160,22 @@ img {
 }
 
 .link--secondary {
-	color: $black;
+	color: var(--black);
 
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba($black, .05);
+		background: rgba(var(--black), .05);
 	}
 }
 
 .link--delete {
-	color: $red;
+	color: var(--red);
 
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba($red, .05);
+		background: rgba(var(--red), .05);
 	}
 }
 
@@ -186,19 +188,19 @@ img {
 }
 
 .modal {
-	background: $white;
-	border: 2px solid $black;
-	box-shadow: 4px 4px 0 0 rgba($black, .5);
-	color: $black;
+	background: var(--white);
+	border: 2px solid var(--black);
+	box-shadow: 4px 4px 0 0 rgba(var(--black), .5);
+	color: var(--black);
 	padding: 20px;
 
 	&:focus {
-		box-shadow: 4px 4px 0 0 rgba($black, .5);
+		box-shadow: 4px 4px 0 0 rgba(var(--black), .5);
 	}
 }
 
 .modal::backdrop {
-	background: rgba($black, .5);
+	background: rgba(var(--black), .5);
 }
 
 .modal__box {
@@ -213,5 +215,5 @@ img {
 
 :focus {
 	box-shadow: 0 0 0 4px #6cf;
-	outline: none !important; // stylelint-disable-line declaration-no-important
+	outline: none !important; /* stylelint-disable-line declaration-no-important */
 }
