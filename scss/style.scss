@@ -151,7 +151,7 @@ img {
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba(var(--blue), .05);
+		background: hsl(from var(--blue) h s l / .05);
 	}
 
 	@media print {
@@ -165,7 +165,7 @@ img {
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba(var(--black), .05);
+		background: hsl(from var(--black) h s l / .05);
 	}
 }
 
@@ -175,7 +175,7 @@ img {
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba(var(--red), .05);
+		background: hsl(from var(--red) h s l / .05);
 	}
 }
 
@@ -190,17 +190,17 @@ img {
 .modal {
 	background: var(--white);
 	border: 2px solid var(--black);
-	box-shadow: 4px 4px 0 0 rgba(var(--black), .5);
+	box-shadow: 4px 4px 0 0 hsl(from var(--black) h s l / .5);
 	color: var(--black);
 	padding: 20px;
 
 	&:focus {
-		box-shadow: 4px 4px 0 0 rgba(var(--black), .5);
+		box-shadow: 4px 4px 0 0 hsl(from var(--black) h s l / .5);
 	}
 }
 
 .modal::backdrop {
-	background: rgba(var(--black), .5);
+	background: hsl(from var(--black) h s l / .5);
 }
 
 .modal__box {
