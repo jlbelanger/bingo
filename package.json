@@ -15,8 +15,8 @@
 	"scripts": {
 		"build": "rm -rf build/ && node_modules/.bin/webpack --mode=production",
 		"lint": "yarn lint:css && yarn lint:html && yarn lint:js",
-		"lint:css": "node_modules/.bin/stylelint 'scss/**/*.scss'",
-		"lint:html": "node_modules/.bin/linthtml 'src/**/*.html'",
+		"lint:css": "node_modules/.bin/stylelint 'css/**/*.css'",
+		"lint:html": "node_modules/.bin/linthtml 'src/**/*.hbs'",
 		"lint:js": "node_modules/.bin/eslint . --ext .js",
 		"start": "npx update-browserslist-db@latest && node_modules/.bin/webpack serve"
 	},
@@ -24,13 +24,12 @@
 		"@babel/core": "^7.26.0",
 		"@linthtml/linthtml": "^0.10.1",
 		"@stylistic/stylelint-plugin": "^3.1.1",
-		"autoprefixer": "^10.4.20",
 		"babel-loader": "^9.2.1",
 		"browser-sync": "^3.0.3",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"copy-webpack-plugin": "^12.0.2",
 		"css-loader": "^7.1.2",
-		"cssnano": "^7.0.6",
+		"css-minimizer-webpack-plugin": "^7.0.2",
 		"eslint": "^8.57.1",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-plugin-import": "^2.31.0",
@@ -41,12 +40,9 @@
 		"postcss": "^8.4.49",
 		"postcss-loader": "^8.1.1",
 		"postcss-preset-env": "^10.1.2",
-		"sass": "^1.83.0",
-		"sass-loader": "^16.0.4",
-		"stylelint": "^16.12.0",
-		"stylelint-config-standard-scss": "^14.0.0",
+		"stylelint": "^16.18.0",
+		"stylelint-config-standard": "^38.0.0",
 		"stylelint-order": "^6.0.4",
-		"stylelint-scss": "^6.10.0",
 		"terser-webpack-plugin": "^5.3.11",
 		"webpack": "^5.97.1",
 		"webpack-cli": "^6.0.1",
@@ -56,5 +52,6 @@
 	"browserslist": [
 		"defaults",
 		"iOS >= 12"
-	]
+	],
+	"dependencies": {}
 }
