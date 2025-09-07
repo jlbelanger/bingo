@@ -14,7 +14,8 @@
 	--board-width: calc((var(--img-width) + ((var(--img-border-width) + var(--img-margin)) * 2)) * 5);
 }
 
-@custom-media --large-up (width >= calc(var(--board-width) + (var(--margin) * 2)));
+/* var(--board-width) + (var(--margin) * 2) */
+@custom-media --large-up (width >= 554px);
 
 * {
 	box-sizing: border-box;
