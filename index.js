@@ -1,2 +1,2 @@
 import './css/style.css';
-import './js/functions';
+import './js/functions.js';
