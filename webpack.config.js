@@ -1,12 +1,12 @@
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const fs = require('fs');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import fs from 'fs';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import path from 'path';
+import TerserPlugin from 'terser-webpack-plugin';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 
 function getPages(dir) {
 	let output = [];
@@ -25,7 +25,7 @@ function getPages(dir) {
 
 const pages = getPages('./src');
 
-module.exports = {
+export default {
 	mode: 'production',
 	devtool: false,
 	devServer: {
@@ -45,7 +45,7 @@ module.exports = {
 	output: {
 		chunkLoadingGlobal: 'app',
 		filename: 'assets/js/[name].min.js?[contenthash]',
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(process.cwd(), 'build'),
 		publicPath: '/',
 	},
 	plugins: [
@@ -112,7 +112,7 @@ module.exports = {
 					{
 						loader: 'handlebars-loader',
 						options: {
-							helperDirs: path.join(__dirname, 'helpers'),
+							helperDirs: path.join(process.cwd(), 'helpers'),
 						},
 					},
 				],

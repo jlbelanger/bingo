@@ -90,7 +90,7 @@ function showModal(args) {
 		button.setAttribute('type', 'button');
 		button.innerText = data.label;
 		button.addEventListener('click', () => {
-			if (Object.prototype.hasOwnProperty.call(data, 'onClick')) {
+			if (Object.hasOwn(data, 'onClick')) {
 				data.onClick();
 			}
 			dialog.close();
