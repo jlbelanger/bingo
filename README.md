@@ -7,7 +7,7 @@
 ### Requirements
 
 - [Git](https://git-scm.com/)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install)
+- [Node](https://nodejs.org/)
 
 ### Setup
 
@@ -20,7 +20,7 @@ cd bingo
 ### Run
 
 ``` bash
-yarn start
+npm start
 ```
 
 Your browser should automatically open https://localhost:3000/
@@ -28,7 +28,7 @@ Your browser should automatically open https://localhost:3000/
 ### Lint
 
 ``` bash
-yarn lint
+npm run lint
 ```
 
 ### Generate splash screens
