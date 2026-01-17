@@ -49,11 +49,16 @@ export default {
 		publicPath: '/',
 	},
 	plugins: [
-		...pages.map((filename) => (new HtmlWebpackPlugin({
-			filename: filename.replace('.hbs', '.html'),
-			template: path.join('./src', filename),
-			templateParameters: { filename: filename.replace('.hbs', '.html') },
-		}))),
+		...pages.map(
+			(filename) =>
+				new HtmlWebpackPlugin({
+					filename: filename.replace('.hbs', '.html'),
+					template: path.join('./src', filename),
+					templateParameters: {
+						filename: filename.replace('.hbs', '.html'),
+					},
+				}),
+		),
 		new MiniCssExtractPlugin({
 			filename: 'assets/css/[name].min.css?[contenthash]',
 		}),
@@ -71,36 +76,27 @@ export default {
 				concurrency: 100,
 			},
 		}),
-		new BrowserSyncPlugin({
-			proxy: 'https://localhost:8081',
-			port: 3001,
-			files: [
-				'helpers/**/*',
-				'js/**/*',
-				'partials/**/*',
-				'css/**/*',
-				'src/**/*.hbs',
-			],
-			snippetOptions: {
-				rule: {
-					match: /<body[^>]*>/i,
-					fn: (snippet, match) => (
-						// Allow Browsersync to work with Content-Security-Policy without script-src 'unsafe-inline'.
-						`${match}${snippet.replace('id=', 'nonce="browser-sync" id=')}`
-					),
+		new BrowserSyncPlugin(
+			{
+				proxy: 'https://localhost:8081',
+				port: 3001,
+				files: ['helpers/**/*', 'js/**/*', 'partials/**/*', 'css/**/*', 'src/**/*.hbs'],
+				snippetOptions: {
+					rule: {
+						match: /<body[^>]*>/i,
+						fn: (snippet, match) =>
+							// Allow Browsersync to work with Content-Security-Policy without script-src 'unsafe-inline'.
+							`${match}${snippet.replace('id=', 'nonce="browser-sync" id=')}`,
+					},
 				},
 			},
-		}, {
-			reload: false,
-		}),
+			{
+				reload: false,
+			},
+		),
 		new WorkboxPlugin.GenerateSW({
 			clientsClaim: true,
-			exclude: [
-				'403.html',
-				'404.html',
-				'robots.txt',
-				'sitemap.xml',
-			],
+			exclude: ['403.html', '404.html', 'robots.txt', 'sitemap.xml'],
 			skipWaiting: true,
 		}),
 	],
@@ -136,9 +132,7 @@ export default {
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
-								plugins: [
-									'postcss-preset-env',
-								],
+								plugins: ['postcss-preset-env'],
 							},
 						},
 					},

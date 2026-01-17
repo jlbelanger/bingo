@@ -11,7 +11,7 @@
 
 ### Setup
 
-``` bash
+```bash
 git clone https://github.com/jlbelanger/bingo.git
 cd bingo
 ./setup.sh
@@ -19,7 +19,7 @@ cd bingo
 
 ### Run
 
-``` bash
+```bash
 npm start
 ```
 
@@ -27,13 +27,13 @@ Your browser should automatically open https://localhost:3000/
 
 ### Lint
 
-``` bash
+```bash
 npm run lint
 ```
 
 ### Generate splash screens
 
-``` bash
+```bash
 npx pwa-asset-generator public/icon.png ./public/assets/splash --background "#999" --splash-only --type png --portrait-only --padding "20%"
 ```
 
@@ -41,6 +41,6 @@ npx pwa-asset-generator public/icon.png ./public/assets/splash --background "#99
 
 Note: The deploy script included in this repo depends on other scripts that only exist in my private repos. If you want to deploy this repo, you'll have to create your own script.
 
-``` bash
+```bash
 ./deploy.sh
 ```
